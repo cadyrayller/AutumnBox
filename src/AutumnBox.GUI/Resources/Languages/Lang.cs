@@ -36,6 +36,7 @@ namespace AutumnBox.GUI.Resources.Languages
         }
         public static bool FileCheck()
         {
+
             IEnumerable<ResourceDictionary> langResourceDictionaries =
                 from langInfo in Langs
                 select new ResourceDictionary() { Source = new System.Uri(langInfo.Item3) };

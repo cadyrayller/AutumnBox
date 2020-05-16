@@ -4,10 +4,10 @@
 ** desc： ...
 *************************************************/
 using AutumnBox.Basic.ManagedAdb.CommandDriven;
+using AutumnBox.Basic.Util.Native;
 using AutumnBox.Logging;
 using System;
 using System.Diagnostics;
-using System.Management;
 
 namespace AutumnBox.Basic.Calling
 {
@@ -65,27 +65,7 @@ namespace AutumnBox.Basic.Calling
         /// <param name="pid">Process ID.</param>
         public static void KillProcessAndChildren(int pid)
         {
-            // Cannot close 'system idle process'.
-            if (pid == 0)
-            {
-                return;
-            }
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher
-                    ("Select * From Win32_Process Where ParentProcessID=" + pid);
-            ManagementObjectCollection moc = searcher.Get();
-            foreach (ManagementObject mo in moc)
-            {
-                KillProcessAndChildren(Convert.ToInt32(mo["ProcessID"]));
-            }
-            try
-            {
-                Process proc = Process.GetProcessById(pid);
-                proc.Kill();
-            }
-            catch (ArgumentException)
-            {
-                // Process already exited.
-            }
+            ProcessKiller.FKill(pid);
         }
     }
 }

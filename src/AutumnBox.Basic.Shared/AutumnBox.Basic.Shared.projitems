@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BasicBooter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MINF.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Calling\CommandExecutorExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Calling\CPMExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Calling\Events.cs" />
@@ -18,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Calling\CommandResultExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ManagedAdb\CommandDriven\CommandDrivenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultipleDevices\DevicesCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\Native\ProcessKiller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\ProcessExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\CommandResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\INotifyOutput.cs" />

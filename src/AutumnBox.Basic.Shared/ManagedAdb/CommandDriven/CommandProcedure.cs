@@ -1,10 +1,10 @@
 ﻿#nullable enable
 using AutumnBox.Basic.Data;
+using AutumnBox.Basic.Util.Native;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -231,20 +231,7 @@ namespace AutumnBox.Basic.ManagedAdb.CommandDriven
         /// <param name="pid"></param>
         private static void GreateKill(int pid)
         {
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("Select * From Win32_Process Where ParentProcessID=" + pid);
-                ManagementObjectCollection moc = searcher.Get();
-                foreach (ManagementObject mo in moc)
-                {
-                    GreateKill(Convert.ToInt32(mo["ProcessID"]));
-                }
-                Process.GetProcessById(pid).Kill();
-            }
-            catch
-            {
-                /* process already exited */
-            }
+            ProcessKiller.FKill(pid);
         }
 
         #region IDisposable Support

@@ -14,6 +14,8 @@ namespace AutumnBox.OpenFramework
     /// </summary>
     public static class BuildInfo
     {
+        const string VERSION_STR = "11.4";
+
         /// <summary>
         /// 拓展模块路径
         /// </summary>
@@ -26,6 +28,7 @@ namespace AutumnBox.OpenFramework
         /// SDK版本
         /// </summary>
         public static readonly Version SDK_VERSION;
+
         /// <summary>
         /// AutumnBox.GUI的程序集名称
         /// </summary>
@@ -42,11 +45,10 @@ namespace AutumnBox.OpenFramework
         /// AutumnBox.OpenFramework的程序集名称
         /// </summary>
         internal const string AUTUMNBOX_LOGGING_ASSEMBLY_NAME = "AutumnBox.Logging";
+
         static BuildInfo()
         {
-            Assembly asm = Assembly.GetExecutingAssembly();
-            FileVersionInfo info = FileVersionInfo.GetVersionInfo(asm.Location);
-            SDK_VERSION = new Version(info.FileMajorPart, info.FileMinorPart, info.FileBuildPart);
+            SDK_VERSION = new Version(VERSION_STR);
             API_LEVEL = SDK_VERSION.Major;
         }
     }

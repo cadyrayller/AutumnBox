@@ -1,0 +1,26 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:AutumnBox.CGUI.Views.Controls"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AutumnBox.CGUI.Views.Windows.MainWindow"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="800"
+        MinHeight="450"
+        Icon="avares://AutumnBox.CGUI/Assets/Logo/logo.ico"
+        Title="AutumnBox">
+  <DockPanel>
+    <controls:StatusBar DockPanel.Dock="Bottom"/>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="_File">
+        <MenuItem Header="Restart Application"></MenuItem>
+        <Separator/>
+        <MenuItem Header="Exit"></MenuItem>
+      </MenuItem>
+    </Menu>
+    <Grid DockPanel.Dock="Top">
+      <Image Source="avares://AutumnBox.CGUI/Assets/Logo/winicon.png"></Image>
+    </Grid>
+  </DockPanel>
+</Window>
